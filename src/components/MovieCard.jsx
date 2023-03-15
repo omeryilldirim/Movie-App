@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { toastWarnNotify } from "../helper/ToastNotify";
 
 const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
   const { currentUser } = useContext(AuthContext);
@@ -21,7 +22,9 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
     <div
       className="movie"
       id="container"
-      onClick={() => navigate("details/" + id)}
+      onClick={() => {
+        navigate("details/" + id)
+        currentUser || toastWarnNotify("Please login to see movie details!")}}
     >
       <img
         loading="lazy"

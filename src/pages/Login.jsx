@@ -14,10 +14,10 @@ const Login = () => {
   };
 
   return (
-    <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
+    <div className="overflow-hidden flex-1 min-h-[85vh] justify-center items-center bg-gray-200 dark:bg-gray-600">
       <div className={`form-container mt-[10vh] w-[380px] h-[500px]`}>
         <form onSubmit={handleSubmit}>
-          <h2 className="text-red-main text-2xl font-[500] text-center tracking-[0.1em] mb-3">
+          <h2 className="text-red-main text-2xl font-[600] text-center tracking-[0.1em] mb-3">
             Sign In
           </h2>
           <div className="relative z-0 w-full mb-6 group">
@@ -26,7 +26,7 @@ const Login = () => {
               type="email"
               className="peer"
               placeholder=" "
-              required
+              required autoFocus
               onChange={(e) => setEmail(e.target.value)}
             />
             <label htmlFor="floating_email">Email</label>
@@ -43,11 +43,11 @@ const Login = () => {
             <label htmlFor="floating_password">Password</label>
           </div>
           <div className="flex justify-between">
-            <span onClick={()=>forgotPassword(email)} className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]">
+            <span onClick={()=>forgotPassword(email)} className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 dark:text-white dark:hover:text-red-main hover:text-[#ff4b45]">
               Forgot Password
             </span>
             <Link
-              className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]"
+              className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 dark:text-white dark:hover:text-red-main hover:text-[#ff4b45]"
               to="/register"
             >
               Sign Up

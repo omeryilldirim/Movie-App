@@ -9,10 +9,10 @@ module.exports = {
     //! eğer tailwind'in default theme ayarları yerine kendimizinkini eklemek istemiyorsak mutlaka extend objesi içinde eklememiz gerekli yoksa tüm theme objesi değişir ve kendi eklediklerimiz dışındakileri kullanamayız.
     extend: {
       colors: {
-        "gray-dark-main": "#23242a",
-        "gray-dark-second": "#28292d",
+        "gray-dark-main": "#707686",
+        "gray-dark-second": "#627C87",
         "gray-light": "#d3dce6",
-        "red-main": "#ff4b45",
+        "red-main": "#86041A",
       },
     },
   },

@@ -26,12 +26,12 @@ const Main = () => {
     }
   }
   return (
-    <>
-      <form className="flex justify-center p-2" onSubmit={handleSubmit}>
+    <div className="main-container">
+      <form className="flex justify-center p-2 mt-3" onSubmit={handleSubmit}>
         <input
           type="search"
           className="w-80 h-8 rounded-md p-1 m-2"
-          placeholder="Search a movie..."
+          placeholder="Search a movie..." autoFocus
           onChange={(e)=> setSearchTerm(e.target.value)}
         />
         <button className="btn-danger-bordered" type="submit">
@@ -50,7 +50,7 @@ const Main = () => {
           movies.map((movie) => <MovieCard key={movie.id} {...movie} />)
         )}
       </div>
-    </>
+    </div>
   );
 };
 

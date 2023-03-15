@@ -14,6 +14,10 @@ const MovieDetail = () => {
     vote_average,
     release_date,
     vote_count,
+    budget,
+    original_language,
+    revenue,
+    genres
   } = movieDetails;
 
   const API_KEY = process.env.REACT_APP_TMDB_KEY;
@@ -27,7 +31,9 @@ const MovieDetail = () => {
   useEffect(() => {
     axios
       .get(movieDetailBaseUrl)
-      .then((res) => setMovieDetails(res.data))
+      .then((res) => {
+        console.log(res.data);
+        setMovieDetails(res.data)})
       .catch((err) => console.log(err));
     axios
       .get(videoUrl)
@@ -39,31 +45,40 @@ const MovieDetail = () => {
     <div className="md:container px-10 mx-auto py-5">
       <h1 className="text-center text-white text-3xl">{title}</h1>
       {videoKey && <VideoSection videoKey={videoKey} />}
-      <div className="md:container flex justify-center px-10">
-        <div className="flex flex-col lg:flex-row max-w-6xl rounded-lg bg-gray-100 shadow-lg">
+      <div className="md:container flex justify-center px-10 ">
+        <div className="flex flex-col lg:flex-row max-w-6xl rounded-lg bg-gray-200 dark:bg-gray-400 shadow-lg ">
           <img
             className=" lg:w-1/3 h-96 lg:h-[600px] object-cover rounded-t-lg md:rounded-none md:rounded-l-lg"
             src={poster_path ? baseImageUrl + poster_path : defaultImage}
             alt="poster"
           />
-          <div className="p-6 flex flex-col justify-between">
+          <div className="p-6 flex flex-col justify-between ">
             <div>
-              <h5 className="text-gray-900 text-xl font-medium mb-2">
+              <h5 className="text-gray-900 dark:text-white text-xl font-medium mb-2">
                 Overview
               </h5>
-              <p className="text-gray-700 text-base mb-4">{overview}</p>
+              <p className="text-gray-700 dark:text-white text-base mb-4">{overview}</p>
             </div>
-            <ul className="bg-gray-100 rounded-lg border border-gray-400 text-gray-900">
-              <li className="px-6 py-2 border-b border-gray-400 w-full rounded-t-lg">
+            <ul className="bg-gray-100 dark:bg-gray-400 rounded-lg border border-gray-400 dark:border-white text-gray-900 dark:text-white">
+              <li className="px-6 py-2 border-b border-gray-400 dark:border-white w-full rounded-t-lg">
                 {"Release Date : " + release_date}
               </li>
-              <li className="px-6 py-2 border-b border-gray-400 w-full">
-                {"Rate : " + vote_average}
+              <li className="px-6 py-2 border-b border-gray-400 dark:border-white w-full">
+                {"Rate : " + vote_average?.toFixed(1)}
               </li>
-              <li className="px-6 py-2 border-b border-gray-400 w-full">
+              <li className="px-6 py-2 border-b border-gray-400 dark:border-white w-full">
                 {"Total Vote : " + vote_count}
               </li>
-              <li className="px-6 py-2 border-gray-400 w-full rounded-t-lg">
+              <li className="px-6 py-2 border-b border-gray-400 dark:border-white w-full">
+                {"Original Language : " + original_language?.toUpperCase()}
+              </li>
+              <li className="px-6 py-2 border-b border-gray-400 dark:border-white w-full">
+                {"Genres : " + genres?.map((item)=>" " +item.name)}</li>
+              <li className="px-6 py-2 border-b border-gray-400 dark:border-white w-full">
+                {"Budget : " + budget}</li>
+              <li className="px-6 py-2 border-b border-gray-400 dark:border-white w-full">
+                {"Revenue : " + revenue}</li>
+              <li className="px-6 py-2 border-gray-400 dark:border-white w-full rounded-t-lg">
                 <Link
                   to={-1}
                   className="text-blue-600 hover:text-blue-700 transition duration-300 ease-in-out mb-4"

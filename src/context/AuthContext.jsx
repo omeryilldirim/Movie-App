@@ -17,7 +17,6 @@ const AuthContextProvider = ({ children }) => {
     
   const createUser = async (email, password, displayName) => {
     try {
-      //? yeni bir kullanıcı oluşturmak için kullanılan firebase metodu
       await createUserWithEmailAndPassword(
         auth,
         email,
@@ -63,9 +62,7 @@ const AuthContextProvider = ({ children }) => {
 
 
   const signUpProvider = () => {
-    //? Google ile giriş yapılması için kullanılan firebase metodu
     const provider = new GoogleAuthProvider();
-    //? Açılır pencere ile giriş yapılması için kullanılan firebase metodu
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result);
@@ -78,7 +75,6 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const forgotPassword = (email) => {
-    //? Email yoluyla şifre sıfırlama için kullanılan firebase metodu
     sendPasswordResetEmail(auth, email)
       .then(() => {
         toastWarnNotify("Please check your mail box!");

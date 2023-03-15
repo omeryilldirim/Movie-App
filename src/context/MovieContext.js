@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import { toastErrorNotify } from "../helper/ToastNotify";
 export const MovieContext = createContext();
 
 const API_KEY = process.env.REACT_APP_TMDB_KEY;
@@ -16,7 +17,7 @@ const MovieContextProvider = ({ children }) => {
     axios
       .get(API)
       .then((res) => setMovies(res.data.results))
-      .catch((err) => console.log(err))
+      .catch((err) => toastErrorNotify(err.message))
       .finally(() => setLoading(false));
   };
   const values = { movies, getMovies, loading };

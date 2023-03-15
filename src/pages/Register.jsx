@@ -9,17 +9,6 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const { createUser,signUpProvider } = useContext(AuthContext);
 
-  // const [info, setInfo] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   password: "",
-  // });
-
-  // const { email, password, firstName, lastName } = info;
-  // const hadleChange = (e) =>
-  //   setInfo({ ...info, [e.target.id]: e.target.value });
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const displayName = `${firstName} ${lastName}`

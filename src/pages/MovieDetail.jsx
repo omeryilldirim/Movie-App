@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import VideoSection from "../components/VideoSection";
+import { toastErrorNotify } from "../helper/ToastNotify";
 
 const MovieDetail = () => {
   const [movieDetails, setMovieDetails] = useState("");
@@ -31,14 +32,12 @@ const MovieDetail = () => {
   useEffect(() => {
     axios
       .get(movieDetailBaseUrl)
-      .then((res) => {
-        console.log(res.data);
-        setMovieDetails(res.data)})
-      .catch((err) => console.log(err));
+      .then((res) => setMovieDetails(res.data))
+      .catch((err) => toastErrorNotify(err.message));
     axios
       .get(videoUrl)
       .then((res) => setVideoKey(res.data.results[0].key))
-      .catch((err) => console.log(err));
+      .catch((err) => toastErrorNotify(err.message));
   }, [movieDetailBaseUrl, videoUrl]);
 
   return (
@@ -60,6 +59,7 @@ const MovieDetail = () => {
               <p className="text-gray-700 dark:text-white text-base mb-4">{overview}</p>
             </div>
             <ul className="bg-gray-100 dark:bg-gray-400 rounded-lg border border-gray-400 dark:border-white text-gray-900 dark:text-white">
+            {movieDetails && <>          
               <li className="px-6 py-2 border-b border-gray-400 dark:border-white w-full rounded-t-lg">
                 {"Release Date : " + release_date}
               </li>
@@ -78,7 +78,10 @@ const MovieDetail = () => {
                 {"Budget : " + budget}</li>
               <li className="px-6 py-2 border-b border-gray-400 dark:border-white w-full">
                 {"Revenue : " + revenue}</li>
-              <li className="px-6 py-2 border-gray-400 dark:border-white w-full rounded-t-lg">
+              
+              </>  
+            }
+            <li className="px-6 py-2 border-gray-400 dark:border-white w-full rounded-t-lg">
                 <Link
                   to={-1}
                   className="text-blue-600 hover:text-blue-700 transition duration-300 ease-in-out mb-4"

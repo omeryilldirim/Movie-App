@@ -4,12 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../auth/firebase";
 import { toastErrorNotify, toastSuccessNotify, toastWarnNotify } from "../helper/ToastNotify";
 
-// export const {Provider} = createContext()
 export const AuthContext = createContext();
-//* with custom hook
-// export const useAuthContext = () => {
-//     return useContext(AuthContext);
-//   };
+
 
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem("user")) || "")
@@ -35,8 +31,7 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
-  //* https://console.firebase.google.com/
-  //* => Authentication => sign-in-method => enable Email/password
+
   const signIn = async (email, password) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -66,11 +61,7 @@ const AuthContextProvider = ({ children }) => {
     });
   }
 
-  //* https://console.firebase.google.com/
-  //* => Authentication => sign-in-method => enable Google
-  //! Google ile girişi enable yap
-  //* => Authentication => settings => Authorized domains => add domain
-  //! Projeyi deploy ettikten sonra google sign-in çalışması için domain listesine deploy linkini ekle
+
   const signUpProvider = () => {
     //? Google ile giriş yapılması için kullanılan firebase metodu
     const provider = new GoogleAuthProvider();
@@ -82,7 +73,7 @@ const AuthContextProvider = ({ children }) => {
         toastSuccessNotify("Logged in successfully!");
       })
       .catch((error) => {
-        console.log(error);
+        toastErrorNotify(error.message);
       });
   };
 
@@ -90,14 +81,10 @@ const AuthContextProvider = ({ children }) => {
     //? Email yoluyla şifre sıfırlama için kullanılan firebase metodu
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        // Password reset email sent!
         toastWarnNotify("Please check your mail box!");
-        // alert("Please check your mail box!");
       })
       .catch((err) => {
         toastErrorNotify(err.message);
-        // alert(err.message);
-        // ..
       });
   };
 

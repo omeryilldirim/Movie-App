@@ -13,7 +13,7 @@ const AppRouter = () => {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/Movie-App" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 

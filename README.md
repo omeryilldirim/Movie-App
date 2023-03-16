@@ -11,8 +11,7 @@ Project aims to create a Movie App which requires user login and you can search 
 ```
  Movie App (folder)
 |
-|----readme.md         # Given to the students (Definition of the project)
-SOLUTION
+|---readme.md 
 ├── public
 │     └── index.html
 ├── src

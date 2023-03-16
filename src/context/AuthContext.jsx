@@ -23,7 +23,7 @@ const AuthContextProvider = ({ children }) => {
         password
       );
       await updateProfile(auth.currentUser, {displayName:displayName})
-      navigate("/")
+      navigate("/Movie-App")
       toastSuccessNotify("Registered successfully!")
     } catch (error) {
       toastErrorNotify(error.message)
@@ -34,7 +34,7 @@ const AuthContextProvider = ({ children }) => {
   const signIn = async (email, password) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/")
+      navigate("/Movie-App")
       toastSuccessNotify("Logged in successfully!")
 
     } catch (error) {
@@ -66,7 +66,7 @@ const AuthContextProvider = ({ children }) => {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result);
-        navigate("/");
+        navigate("/Movie-App");
         toastSuccessNotify("Logged in successfully!");
       })
       .catch((error) => {

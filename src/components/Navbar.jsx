@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import avatar from "../assets/icons/avatar.png";
 import { AuthContext } from "../context/AuthContext";
-import Switch from "./Switch"
+import Switch from "./Switch";
+import FavIcon from "../assets/icons/FavIcon.js";
+import { MovieContext } from "../context/MovieContext";
 
 const Navbar = () => {
   const { currentUser, logOut } = useContext(AuthContext);
-
+  const {favorites} = useContext(MovieContext)
   return (
     <div>
       <nav
@@ -14,16 +16,24 @@ const Navbar = () => {
         data-te-navbar-ref=""
       >
         <div className="flex w-full flex-wrap items-center justify-between px-6">
-          <Link className="pr-2 text-2xl font-semibold text-red-700" to="/">
+          <Link
+            className="pr-2 text-2xl font-semibold text-red-700"
+            to="/Movie-App"
+          >
             Movie App
           </Link>
 
           {/* Collapsible wrapper */}
           {/* Right elements */}
-          <div className="relative flex items-center">
+          <div className="relative flex items-center gap-3">
             {currentUser && (
-              <h5 className="mr-2 capitalize">{currentUser.displayName}</h5>
+                <h5 className="mr-2 capitalize">{currentUser.displayName}</h5>
             )}
+                            <Link to="/Movie-App/favorites" className="relative flex justify-center items-center mx-2">
+                  <FavIcon fill="crimson" />
+                  <span className="absolute top-[-8px] right-[-5px] px-0.5 rounded m-0 bg-gray-700 text-sm text-white dark:bg-gray-200 dark:text-black"
+                  >{favorites.length || "0"}</span>
+                </Link>
             <Switch />
             <div className="relative" data-te-dropdown-ref="">
               <span
@@ -48,40 +58,38 @@ const Navbar = () => {
                 data-te-dropdown-menu-ref=""
               >
                 {currentUser ? (
-                <li>
-                <span
-                  className="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
-                  role="button"
-                  data-te-dropdown-item-ref=""
-                  onClick={logOut}
-                >
-                  Logout
-                </span>
-              </li>
-                ): (
-                  <>
                   <li>
-                  <Link
-                    className="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
-                    to="/register"
-                    data-te-dropdown-item-ref=""
-                  >
-                    Register
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
-                    to="/login"
-                    data-te-dropdown-item-ref=""
-                  >
-                    Login
-                  </Link>
-                </li>
-                </>
+                    <span
+                      className="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                      role="button"
+                      data-te-dropdown-item-ref=""
+                      onClick={logOut}
+                    >
+                      Logout
+                    </span>
+                  </li>
+                ) : (
+                  <>
+                    <li>
+                      <Link
+                        className="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                        to="/Movie-App/register"
+                        data-te-dropdown-item-ref=""
+                      >
+                        Register
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                        to="/Movie-App/login"
+                        data-te-dropdown-item-ref=""
+                      >
+                        Login
+                      </Link>
+                    </li>
+                  </>
                 )}
-                
-
               </ul>
             </div>
           </div>

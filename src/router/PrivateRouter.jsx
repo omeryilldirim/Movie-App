@@ -6,7 +6,7 @@ const PrivateRouter = () => {
     const {currentUser } = useContext(AuthContext)
   return (
     <div>
-        {currentUser ? <Outlet/> : <Navigate to="/login" />}
+        {currentUser ? <Outlet/> : <Navigate to="/Movie-App/login" />}
     </div>
   )
 }

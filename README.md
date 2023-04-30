@@ -57,4 +57,4 @@ Project aims to create a Movie App which requires user login and you can search 
 - ReactJS, Firebase, Tailwind, Toastify, tw-elements
 
 
-**<p align="center">&#9786; Happy Coding &#9997; - Please feel free to check my work out ! 🙃 </p>**
+**<p align="center">&#9786; Happy Coding &#9997; - Please feel free to check ! 🙃 </p>**

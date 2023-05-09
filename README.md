@@ -4,7 +4,12 @@
 
 ## Description
 
-Project aims to create a Movie App which requires user login and you can search movies, add to your favourites and check movie details out. 
+Project aims to create a Movie App which requires user login and you can search movies, add to your favourites and check movie details out. You can use the account information below or you can create your own account.
+
+```
+email: user@gmail.com
+password: Abcd1234*
+```
 
 ## Project Skeleton
 

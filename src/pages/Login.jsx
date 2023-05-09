@@ -48,7 +48,7 @@ const Login = () => {
             </span>
             <Link
               className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 dark:text-white dark:hover:text-red-main hover:text-[#ff4b45]"
-              to="/register"
+              to="/Movie-App/register"
             >
               Sign Up
             </Link>

@@ -44,6 +44,7 @@ const AuthContextProvider = ({ children }) => {
 
   const logOut = () => {
     signOut(auth);
+    navigate("/Movie-App")
     toastSuccessNotify("Logged out successfully!")
   };
 

@@ -10,7 +10,12 @@ Project aims to create a Movie App which requires user login and you can search 
 email: user@gmail.com
 password: Abcd1234*
 ```
+### Following topics are to be covered;
 
+- ReactJS, Firebase, Tailwind, Toastify, tw-elements
+## Outcome
+
+![Project Snapshot](./public/project-image.png)
 ## Project Skeleton
 
 ```
@@ -51,15 +56,5 @@ password: Abcd1234*
 ├── .env
 └── yarn.lock
 ```
-
-## Outcome
-
-![Project Snapshot](./public/project-image.png)
-
-
-### Following topics are to be covered;
-
-- ReactJS, Firebase, Tailwind, Toastify, tw-elements
-
 
 **<p align="center">&#9786; Happy Coding &#9997; - Please feel free to check ! 🙃 </p>**

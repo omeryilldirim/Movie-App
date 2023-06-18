@@ -20,7 +20,7 @@ const Main = () => {
       getMovies(SEARCH_API+searchTerm)
     } else if (!currentUser){
       toastWarnNotify("Please login to search movie")
-      navigate("/Movie-App/login")
+      navigate("/login")
     } else {
       toastWarnNotify("Please enter a text")
     }

@@ -14,15 +14,15 @@ const AppRouter = () => {
     <>
       <Navbar />
       <Routes>
-        <Route path="/Movie-App" element={<Main />} />
-        <Route path="/Movie-App/login" element={<Login />} />
-        <Route path="/Movie-App/register" element={<Register />} />
-        <Route path="/Movie-App/favorites" element={<Favorites />} />
+        <Route path="" element={<Main />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/favorites" element={<Favorites />} />
 
-        <Route path="/Movie-App/favorites" element={<PrivateRouter />}>
+        <Route path="/favorites" element={<PrivateRouter />}>
           <Route path="" element={<Favorites />} />
         </Route>
-        <Route path="/Movie-App/details/:id" element={<PrivateRouter />}>
+        <Route path="/details/:id" element={<PrivateRouter />}>
           <Route path="" element={<MovieDetail />} />
         </Route>
       </Routes>

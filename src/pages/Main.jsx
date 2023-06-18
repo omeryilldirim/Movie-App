@@ -47,8 +47,11 @@ const Main = () => {
             <span className="visually-hidden">Loading...</span>
           </div>
         ) : (
-          movies.map((movie) => <MovieCard key={movie.id} {...movie} />)
+          // movies.length ?
+            movies.map((movie) => <MovieCard key={movie.id} {...movie} />)
+          // : <p className="text-xl text-center text-gray-900 dark:text-white">No movie found</p>
         )}
+        {movies.length === 0 && <p className="text-xl text-center text-gray-900 dark:text-white">No movie found</p>}
       </div>
     </div>
   );

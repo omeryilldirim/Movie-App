@@ -41,17 +41,17 @@ const MovieDetail = () => {
     axios
       .get(videoUrl)
       .then((res) => setVideoKey(res.data.results[0].key))
-      .catch((err) => toastErrorNotify(err.message));
+      // .catch((err) => toastErrorNotify(err.message));
   }, [movieDetailBaseUrl, videoUrl]);
 
   return (
-    <div className="md:container px-10 mx-auto py-5">
-      <h1 className="text-center text-white text-3xl">{title}</h1>
+    <div className="md:container px-10 mx-auto py-5 min-h-[calc(100vh-116px)]">
+      <h1 className="p-1 text-gray-900 dark:text-white text-center text-3xl">{title}</h1>
       {videoKey && <VideoSection videoKey={videoKey} />}
       <div className="md:container flex justify-center px-10 ">
         <div className="relative flex flex-col lg:flex-row max-w-6xl rounded-lg bg-gray-200 dark:bg-gray-400 shadow-lg ">
           <img
-            className=" lg:w-1/3 h-96 lg:h-[600px] object-cover rounded-t-lg md:rounded-none md:rounded-l-lg"
+            className="w-3/4 m-auto lg:w-1/3 lg:h-[600px] object-cover rounded-t-lg md:rounded-none md:rounded-l-lg"
             src={poster_path ? baseImageUrl + poster_path : defaultImage}
             alt="poster"
           />

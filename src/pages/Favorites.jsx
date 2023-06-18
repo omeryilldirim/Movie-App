@@ -6,7 +6,7 @@ import { MovieContext } from "../context/MovieContext";
 const Favorites = () => {
   const { favorites,removeFromFavorites } = useContext(MovieContext);
   return (
-    <div className="min-h-[88vh]">
+    <div className="min-h-[calc(100vh-116px)]">
       <h1 className="flex items-center justify-center pt-5 text-2xl text-red-main dark:text-white">
         Your favourite movies
       </h1>

@@ -29,10 +29,10 @@ const Navbar = () => {
             {currentUser && (
                 <h5 className="mr-2 capitalize">{currentUser.displayName}</h5>
             )}
-                            <Link to="/Movie-App/favorites" className="relative flex justify-center items-center mx-2">
+                <Link to="/Movie-App/favorites" className="relative flex justify-center items-center mx-2">
                   <FavIcon fill="crimson" />
-                  <span className="absolute top-[-8px] right-[-5px] px-0.5 rounded m-0 bg-gray-700 text-sm text-white dark:bg-gray-200 dark:text-black"
-                  >{favorites.length || "0"}</span>
+                  <span className="absolute top-[-8px] right-[-5px] px-1 rounded m-0 bg-gray-700 text-sm text-white dark:bg-gray-200 dark:text-black"
+                  >{favorites.length || ""}</span>
                 </Link>
             <Switch />
             <div className="relative" data-te-dropdown-ref="">

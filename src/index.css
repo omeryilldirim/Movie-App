@@ -53,9 +53,9 @@ body {
 }
 
 .movie img {
-  object-fit: cover;
-  height: 450px;
-  max-width: 100%;
+  object-fit:center;
+  height: 435px;
+  width: 100%;
 }
 
 .movie-over {

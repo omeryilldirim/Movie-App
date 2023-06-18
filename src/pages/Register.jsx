@@ -16,7 +16,7 @@ const Register = () => {
   };
 
   return (
-    <div className="overflow-hidden flex-1 min-h-[88vh] justify-center items-center bg-gray-200  dark:bg-gray-600">
+    <div className="overflow-hidden flex-1 min-h-[calc(100vh-116px)] justify-center items-center bg-gray-200  dark:bg-gray-600">
       <div className={`form-container mt-[5vh] w-[380px] h-[580px]`}>
         <form onSubmit={handleSubmit}>
           <h2 className="text-red-main text-2xl font-[600] text-center tracking-[0.1em] mb-3">

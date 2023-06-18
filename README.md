@@ -1,10 +1,8 @@
-
-
 # Movie App 
 
 ## Description
 
-Project aims to create a Movie App which requires user login and you can search movies, add to your favourites and check movie details out. You can use the account information below or you can create your own account.
+Built a Movie App which requires user login and you can search through movies, add to your favourites and check movie details out. You can use the account information below or you can create your own account.
 
 ```
 email: user@gmail.com
@@ -12,10 +10,10 @@ password: Abcd1234*
 ```
 ### Following topics are to be covered;
 
-- ReactJS, Firebase, Tailwind, Toastify, tw-elements
+- ReactJS, Firebase, Tailwind, Toastify, tw-elements, TheMovieDb API
 ## Outcome
 
-![Project Snapshot](./public/project-image.png)
+![Project Snapshot](./src/assets/snapshot.gif/)
 ## Project Skeleton
 
 ```
@@ -23,6 +21,7 @@ password: Abcd1234*
 |
 |---readme.md 
 ├── public
+│     ├── favicon.ico
 │     └── index.html
 ├── src
 │    ├── assets
